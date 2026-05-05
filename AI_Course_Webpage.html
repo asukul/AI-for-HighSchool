@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI for High School Teachers — Iowa State University</title>
+<meta name="description" content="A 3-week online course preparing Iowa educators to bring Artificial Intelligence into their classrooms. July 20 – August 7, 2026.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Open+Sans:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --cardinal: #C8102E;
+    --cardinal-dk: #8B0000;
+    --cardinal-xdk: #660000;
+    --gold: #F1BE48;
+    --gold-dk: #C69214;
+    --dk: #1a1a1a;
+    --gray: #555;
+    --lt-gray: #f5f5f2;
+    --border: #e0ddd8;
+    --white: #fff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--dk);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* TOP BANNER */
+  .top-banner {
+    background: #000;
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+  }
+  .top-banner-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .top-banner .brand { display: flex; align-items: center; gap: 8px; }
+  .top-banner .isu-mark {
+    width: 22px; height: 22px;
+    background: var(--cardinal); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900; font-size: 13px;
+  }
+  .top-banner .name { font-weight: 700; letter-spacing: 0.06em; }
+  .top-banner .dept { color: #ccc; }
+  .top-banner .sep { color: #666; margin: 0 4px; }
+  .top-banner .url { color: #999; }
+  @media (max-width: 640px) {
+    .top-banner .dept, .top-banner .sep { display: none; }
+    .top-banner .url { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--cardinal) 0%, var(--cardinal-dk) 100%);
+    color: #fff;
+    padding: 3rem 0 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: var(--gold);
+    opacity: 0.12;
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; right: 200px;
+    width: 250px; height: 250px;
+    background: var(--gold);
+    opacity: 0.08;
+    transform: rotate(15deg);
+  }
+  .gold-stripe {
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--gold); z-index: 2;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--cardinal-dk);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    padding: 5px 12px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 .accent { color: var(--gold); }
+  .hero .tagline {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    opacity: 0.92;
+    max-width: 640px;
+    margin-bottom: 2rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 720px) {
+    .info-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .info-card {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 0.7rem 0.9rem;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+  .info-card .label {
+    color: var(--gold);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .info-card .value { font-size: 0.95rem; font-weight: 700; }
+
+  /* TAKEAWAY STRIP */
+  .takeaway {
+    background: var(--gold);
+    border-bottom: 4px solid var(--cardinal);
+  }
+  .takeaway-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .takeaway-badge {
+    background: var(--cardinal);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    padding: 6px 12px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .takeaway-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+    font-weight: 700;
+    color: var(--cardinal-dk);
+  }
+
+  /* SECTION BASICS */
+  section { padding: 3rem 0; }
+  .section-head { margin-bottom: 2rem; }
+  .section-head.bordered { border-left: 4px solid var(--cardinal); padding-left: 1rem; }
+  .eyebrow {
+    color: var(--cardinal);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .section-head h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--dk);
+    line-height: 1.15;
+  }
+  .section-head .sub {
+    color: var(--gray);
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
+  }
+
+  /* WHY NOW */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  @media (max-width: 768px) { .why-grid { grid-template-columns: 1fr; } }
+  .why-card { border-top: 4px solid var(--gold); padding-top: 1rem; }
+  .why-card .num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--cardinal);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .why-card h3 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+  }
+  .why-card p { color: var(--gray); font-size: 0.92rem; }
+
+  /* WEEKS */
+  .weeks-section { background: var(--lt-gray); }
+  .weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 768px) { .weeks-grid { grid-template-columns: 1fr; } }
+  .week-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .week-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .week-head {
+    color: #fff;
+    padding: 0.6rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .week-head .wk { font-weight: 800; font-size: 0.85rem; letter-spacing: 0.05em; }
+  .week-head .date { font-size: 0.75rem; opacity: 0.9; }
+  .w1 .week-head { background: var(--cardinal); }
+  .w2 .week-head { background: var(--cardinal-dk); }
+  .w3 .week-head { background: var(--cardinal-xdk); }
+  .week-card .body { padding: 1rem 1.1rem 1.2rem; }
+  .week-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    color: var(--dk);
+  }
+  .week-card ul { list-style: none; font-size: 0.88rem; color: var(--gray); }
+  .week-card ul li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+  .week-card ul li::before {
+    content: '▸';
+    color: var(--gold-dk);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  /* INSTRUCTOR + CTA */
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 768px) { .bottom-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+  .instructor h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+  .instructor .title {
+    font-size: 0.9rem;
+    color: var(--gray);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .instructor p { color: var(--gray); margin-bottom: 0.5rem; font-size: 0.95rem; }
+  .instructor .email {
+    color: var(--cardinal);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+  .instructor .email:hover { text-decoration: underline; }
+
+  .cta {
+    background: linear-gradient(135deg, var(--cardinal) 0%, var(--cardinal-dk) 100%);
+    color: #fff;
+    padding: 1.75rem 1.75rem;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 180px; height: 180px;
+    background: var(--gold);
+    opacity: 0.15;
+    border-radius: 50%;
+  }
+  .cta > * { position: relative; z-index: 2; }
+  .cta .eyebrow-gold {
+    color: var(--gold);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .cta h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .free-badge {
+    background: var(--gold);
+    color: var(--cardinal-dk);
+    padding: 0.7rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .free-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .free-value {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .requirement {
+    background: rgba(255,255,255,0.12);
+    border-left: 3px solid var(--gold);
+    padding: 0.6rem 0.85rem;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .requirement strong { color: var(--gold); }
+
+  .cta .limit { font-size: 0.88rem; opacity: 0.92; margin-bottom: 1rem; }
+  .btn {
+    background: var(--gold);
+    color: var(--cardinal-dk);
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .btn:hover { background: #ffd46b; }
+  .cta .small { font-size: 0.75rem; opacity: 0.75; margin-top: 0.65rem; }
+
+  /* WHO */
+  .who-section { background: #1a1a1a; color: #fff; padding: 2.5rem 0; }
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 768px) { .who-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+  .who-section .eyebrow { color: var(--gold); }
+  .who-section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+  }
+  .who-list { list-style: none; }
+  .who-list li {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  .who-list li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #000;
+    color: #999;
+    padding: 1.5rem 0;
+    font-size: 0.78rem;
+  }
+  .footer-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  footer .dept-name { color: #fff; font-weight: 700; margin-bottom: 0.25rem; }
+  footer .right { text-align: right; }
+  footer .right a { color: #fff; font-weight: 700; text-decoration: none; }
+  footer .right a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    footer .right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-banner">
+  <div class="top-banner-inner">
+    <div class="brand">
+      <div class="isu-mark">I</div>
+      <span class="name">IOWA STATE UNIVERSITY</span>
+      <span class="sep">|</span>
+      <span class="dept">Department of Computer Science</span>
+    </div>
+    <div class="url">cs.iastate.edu</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="gold-stripe"></div>
+  <div class="container hero-inner">
+    <div class="hero-badge">Professional Development · Summer 2026</div>
+    <h1>AI for High School<br><span class="accent">Teachers</span></h1>
+    <p class="tagline">A 3-week online course preparing Iowa educators to bring Artificial Intelligence into their classrooms with confidence.</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="label">Dates</div>
+        <div class="value">Jul 20 – Aug 7, 2026</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Format</div>
+        <div class="value">Online Asynchronous</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Time</div>
+        <div class="value">6–8 hrs / week</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Credential</div>
+        <div class="value">CS ISU Certificate</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAKEAWAY STRIP -->
+<div class="takeaway">
+  <div class="takeaway-inner">
+    <div class="takeaway-badge">Take Home</div>
+    <div class="takeaway-text">Ready-to-use AI assignment templates you can deploy in your classroom this fall</div>
+  </div>
+</div>
+
+<!-- WHY NOW -->
+<section>
+  <div class="container">
+    <div class="section-head bordered">
+      <div class="eyebrow">Why Now</div>
+      <h2>Iowa's AI classroom shift is here.</h2>
+      <div class="sub">Are you ready to teach it?</div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="num">01</div>
+        <h3>Pending Legislation</h3>
+        <p>Iowa bills HSB 610, HF 2540, and SF 2094 would require students in the class of 2030-31+ to complete CS and AI coursework. Teachers need to be ready.</p>
+      </div>
+      <div class="why-card">
+        <div class="num">02</div>
+        <h3>Federal Priority</h3>
+        <p>The 2025 Presidential Executive Order "Advancing AI Education for American Youth" makes AI literacy a national teacher-training priority.</p>
+      </div>
+      <div class="why-card">
+        <div class="num">03</div>
+        <h3>Ready-to-Use Templates</h3>
+        <p>Leave with classroom-ready AI assignment templates, lesson plans, and rubrics — aligned to Iowa CS standards and ready to deploy on day one this fall.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEKS -->
+<section class="weeks-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">The 3-Week Journey</div>
+      <h2>What You'll Learn</h2>
+    </div>
+    <div class="weeks-grid">
+      <div class="week-card w1">
+        <div class="week-head"><span class="wk">WEEK 1</span><span class="date">Jul 20–24</span></div>
+        <div class="body">
+          <h4>AI Foundations</h4>
+          <ul>
+            <li>What AI is (and isn't)</li>
+            <li>Machine Learning basics</li>
+            <li>Google AI Studio hands-on</li>
+            <li>Build your first AI "Gem"</li>
+            <li>Study guides with AI</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-card w2">
+        <div class="week-head"><span class="wk">WEEK 2</span><span class="date">Jul 27–31</span></div>
+        <div class="body">
+          <h4>Generative AI &amp; Tools</h4>
+          <ul>
+            <li>Prompt engineering for teachers</li>
+            <li>ChatGPT, Claude, Gemini</li>
+            <li>Coding with AI (Claude Code, Codex, Gemini)</li>
+            <li>Local LLMs with LMStudio</li>
+            <li>Teachable Machine projects</li>
+            <li>Workflow automation (n8n)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-card w3">
+        <div class="week-head"><span class="wk">WEEK 3</span><span class="date">Aug 3–7</span></div>
+        <div class="body">
+          <h4>Ethics &amp; Your Classroom</h4>
+          <ul>
+            <li>AI ethics, bias &amp; privacy</li>
+            <li>Iowa policy &amp; legislation</li>
+            <li>Education AI tools landscape</li>
+            <li>Capstone: 3-lesson AI unit</li>
+            <li>Certificate from CS Dept., Iowa State University</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR + CTA -->
+<section>
+  <div class="container">
+    <div class="bottom-grid">
+      <div class="instructor">
+        <div class="eyebrow">Your Instructor</div>
+        <h3>Adisak Sukul</h3>
+        <div class="title">Teaching Professor · ISU Department of Computer Science</div>
+        <p>Adisak teaches Applied AI, Data Science, and Computer Science courses at Iowa State. He brings the same hands-on, project-based approach from his Applied AI courses and various AI Bootcamps and Workshops — redesigned specifically for high school educators.</p>
+        <a class="email" href="mailto:adisak@iastate.edu">adisak@iastate.edu</a>
+      </div>
+      <div class="cta">
+        <div class="eyebrow-gold">Reserve Your Spot</div>
+        <h3>Registration Opens May 2026</h3>
+        <div class="free-badge">
+          <span class="free-label">Tuition</span>
+          <span class="free-value">No Cost</span>
+        </div>
+        <div class="requirement">
+          <strong>Required:</strong> Letter of support from your principal or supervisor
+        </div>
+        <p class="limit">Limited seats. Priority given to Iowa high school CS/AI teachers, math/science teachers, and curriculum leaders.</p>
+        <a class="btn" href="https://forms.gle/pxWgJejCbN5PyLXu5" target="_blank" rel="noopener">Register Now →</a>
+        <div class="small">Notify me when registration opens in May 2026.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<div class="who-section">
+  <div class="container">
+    <div class="who-grid">
+      <div>
+        <div class="eyebrow">Built For You If</div>
+        <h2>Who Should Attend</h2>
+      </div>
+      <ul class="who-list">
+        <li>You teach high school — any subject</li>
+        <li>You want to understand AI beyond the hype</li>
+        <li>You want practical tools you can use day one</li>
+        <li>You want a certificate of completion from the ISU Department of Computer Science</li>
+        <li>No prior coding experience required</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="dept-name">Department of Computer Science · Iowa State University</div>
+      <div>139 Durham Center · 613 Morrill Road · Ames, IA 50011</div>
+      <div>(515) 294-3407 · csdept@iastate.edu</div>
+    </div>
+    <div class="right">
+      <a href="https://www.cs.iastate.edu">cs.iastate.edu</a>
+      <div style="color:#444; font-size:0.65rem; margin-top:4px;">v2026.05.04</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
